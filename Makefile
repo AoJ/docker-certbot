@@ -3,7 +3,7 @@ DOMAIN ?=
 
 
 build:
-	docker build -t aoj/certbot:latest --rm --no-cache .
+	docker build -t aooj/certbot:latest --rm --no-cache .
 
 renew:
 	docker run                                                                 \
@@ -12,7 +12,7 @@ renew:
 	--user $(id -u letsencrypt):$(id -g letsencrypt)                           \
 	-v /etc/letsencrypt:/etc/letsencrypt                                       \
 	-v /var/log/letsencrypt:/var/log/letsencrypt                               \
-	aoj/certbot:latest                                                         \
+	aooj/certbot:latest                                                        \
 	certbot                                                                    \
 	  renew                                                                    \
 	  --dns-digitalocean                                                       \
@@ -29,7 +29,7 @@ issue:
 	--user $(id -u letsencrypt):$(id -g letsencrypt)                           \
 	-v /etc/letsencrypt:/etc/letsencrypt                                       \
 	-v /var/log/letsencrypt:/var/log/letsencrypt                               \
-	aoj/certbot:latest                                                         \
+	aooj/certbot:latest                                                        \
 	certbot                                                                    \
 	  certonly                                                                 \
 	  --dns-digitalocean                                                       \
